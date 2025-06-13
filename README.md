@@ -13,17 +13,6 @@ This Python-based script suite processes tab-delimited text files containing Bas
 - **Embedded Image Extraction**: Scans decoded data for embedded image signatures (PNG, JPG, GIF, BMP) and exports them if found.
 - **Metadata Export**: Generates a tab-separated metadata file (`trace_metadata.tsv`) capturing key fields extracted from each trace block.
 
-## Unit Tests
-
-The suite includes unit tests for each module using Python’s `unittest` framework. Coverage includes:
-
-- Text and regex-based block extraction and parsing.
-- File and image output handling with mocked I/O.
-- Validation of log configuration and message routing.
-- Metadata writing logic with header and data verification.
-- Detection of embedded content and ABI headers.
-
-Tests use `tempfile`, `unittest.mock`, and are structured under a `tests/` directory for maintainability.
 
 ## Logging
 
@@ -34,3 +23,13 @@ A structured logging system is implemented using Python’s `logging` module. Fe
 - Warnings and error messages on decoding failures, rendering issues, and validation misses.
 - Optional integration of custom `announce()` functions for flexible output control.
 
+
+## Unit Tests
+
+The suite includes unit tests for each module using Python’s `unittest` framework. Coverage includes:
+
+- Text and regex-based block extraction and parsing.
+- File and image output handling with mocked I/O.
+- Validation of log configuration and message routing.
+- Metadata writing logic with header and data verification.
+- Detection of embedded content and ABI headers.
