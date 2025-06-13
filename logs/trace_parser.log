@@ -1,0 +1,32 @@
+2025-06-13 11:50:33,707 [ERROR]  [Block 1 | 000001CTG29095454216519702500001] Base64 decoding failed: Invalid base64-encoded string: number of data characters (331773) cannot be 1 more than a multiple of 4
+2025-06-13 11:50:33,710 [INFO]  Saved binary: data/outputs\abi_output\B.bacilliformis_BhCS1137n.ab1
+2025-06-13 11:50:33,711 [WARNING]  [Block 1 | 000001CTG29095454216519702500001] Saved placeholder binary  decode failed, file contains no usable data.
+2025-06-13 11:50:33,711 [INFO]  [Block 1 | 000001CTG29095454216519702500001] Attempting grayscale rendering...
+2025-06-13 11:50:33,711 [WARNING]  [Block 1 | 000001CTG29095454216519702500001] Grayscale render failed: Grayscale rendering error: Decoded grayscale image is empty
+2025-06-13 11:50:33,711 [INFO]  [Block 1 | 000001CTG29095454216519702500001] Checking for embedded chromatogram image...
+2025-06-13 11:50:33,712 [WARNING]  [Block 1 | 000001CTG29095454216519702500001] No embedded image could be extracted from ABI data.
+2025-06-13 11:50:33,712 [INFO]  [Block 1 | 000001CTG29095454216519702500001] Completed with status: base64 decoding error: Invalid base64-encoded string: number of data characters (331773) cannot be 1 more than a multiple of 4
+2025-06-13 11:50:33,714 [INFO]  [Block 2 | 000002CTG29095454216519702500001] Base64 decoded successfully.
+2025-06-13 11:50:33,724 [INFO]  Saved binary: data/outputs\abi_output\B.bacilliformis_CS140f.ab1
+2025-06-13 11:50:33,724 [INFO]  [Block 2 | 000002CTG29095454216519702500001] Attempting grayscale rendering...
+2025-06-13 11:50:33,793 [INFO]  Rendered image: data/outputs\grayscale_explorations\B.bacilliformis_CS140f_rendered.png
+2025-06-13 11:50:33,793 [INFO]  [Block 2 | 000002CTG29095454216519702500001] Checking for embedded chromatogram image...
+2025-06-13 11:50:33,794 [WARNING]  [Block 2 | 000002CTG29095454216519702500001] No embedded image could be extracted from ABI data.
+2025-06-13 11:50:33,794 [INFO]  [Block 2 | 000002CTG29095454216519702500001] Completed with status: success
+2025-06-13 11:50:33,808 [INFO]  [Block 3 | 000003CTG29095454216519702500001] Base64 decoded successfully.
+2025-06-13 11:50:33,809 [INFO]  Saved binary: data/outputs\abi_output\B.bacilliformis_CS443f.ab1
+2025-06-13 11:50:33,809 [INFO]  [Block 3 | 000003CTG29095454216519702500001] Attempting grayscale rendering...
+2025-06-13 11:50:33,848 [INFO]  Rendered image: data/outputs\grayscale_explorations\B.bacilliformis_CS443f_rendered.png
+2025-06-13 11:50:33,854 [INFO]  [Block 3 | 000003CTG29095454216519702500001] Checking for embedded chromatogram image...
+2025-06-13 11:50:33,855 [INFO]  [Block 3 | 000003CTG29095454216519702500001] Embedded image found  attempting to save...
+2025-06-13 11:50:33,856 [INFO]  Saved embedded image: data/outputs\chromatogram_images\B.bacilliformis_CS443f_trace.bmp
+2025-06-13 11:50:33,856 [INFO]  [Block 3 | 000003CTG29095454216519702500001] Completed with status: success
+2025-06-13 11:50:33,860 [ERROR]  [Block 4 | 000004CTG29095454216519702500001] Base64 decoding failed: Invalid base64-encoded string: number of data characters (334489) cannot be 1 more than a multiple of 4
+2025-06-13 11:50:33,869 [INFO]  Saved binary: data/outputs\abi_output\B.bacilliformis_CSH1f.ab1
+2025-06-13 11:50:33,869 [WARNING]  [Block 4 | 000004CTG29095454216519702500001] Saved placeholder binary  decode failed, file contains no usable data.
+2025-06-13 11:50:33,870 [INFO]  [Block 4 | 000004CTG29095454216519702500001] Attempting grayscale rendering...
+2025-06-13 11:50:33,870 [WARNING]  [Block 4 | 000004CTG29095454216519702500001] Grayscale render failed: Grayscale rendering error: Decoded grayscale image is empty
+2025-06-13 11:50:33,870 [INFO]  [Block 4 | 000004CTG29095454216519702500001] Checking for embedded chromatogram image...
+2025-06-13 11:50:33,870 [WARNING]  [Block 4 | 000004CTG29095454216519702500001] No embedded image could be extracted from ABI data.
+2025-06-13 11:50:33,871 [INFO]  [Block 4 | 000004CTG29095454216519702500001] Completed with status: base64 decoding error: Invalid base64-encoded string: number of data characters (334489) cannot be 1 more than a multiple of 4
+2025-06-13 11:50:33,874 [INFO]  Metadata written to data/outputs\trace_metadata.tsv
