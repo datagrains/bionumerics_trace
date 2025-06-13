@@ -7,7 +7,7 @@ saves binary and image representations, and extracts metadata for each block.
 Functions:
     - process_all_blocks(input_file, output_root, width_hint=512): 
       Orchestrates the entire pipeline — parsing blocks, decoding base64 ABI content, saving files, 
-      rendering grayscale previews, extracting embedded images, and writing metadata.
+      rendering greyscale previews, extracting embedded images, and writing metadata.
 """
 
 import os
@@ -15,7 +15,7 @@ import base64
 from common.logging_setup import setup_logging
 from common.block_utils import parse_blocks, safe_get
 from common.abi_processing import extract_base64_data, has_abi_header
-from common.image_tools import save_binary_output, render_grayscale_image, find_embedded_image
+from common.image_tools import save_binary_output, render_greyscale_image, find_embedded_image
 from common.metadata_writer import write_metadata
 
 logger = setup_logging()
@@ -33,7 +33,7 @@ def process_all_blocks(input_file: str, output_root: str, width_hint: int = 512)
     - Parses the input file into blocks.
     - Extracts and decodes base64 ABI content from each block.
     - Saves binary data to an output folder.
-    - Attempts to render grayscale previews of the binary content.
+    - Attempts to render greyscale previews of the binary content.
     - Searches for and extracts any embedded chromatogram images.
     - Logs detailed info and warnings throughout the process.
     - Writes extracted metadata to a .tsv file.
@@ -91,9 +91,9 @@ def process_all_blocks(input_file: str, output_root: str, width_hint: int = 512)
         if not data:
             log("warning", f"[Block {i} | {tid}] Saved placeholder binary.")
 
-        log("info", f"[Block {i} | {tid}] Attempting grayscale rendering...")
+        log("info", f"[Block {i} | {tid}] Attempting greyscale rendering...")
         try:
-            render_grayscale_image(data, os.path.join(
+            render_greyscale_image(data, os.path.join(
                 dirs["img"], f"{os.path.splitext(fname)[0]}_rendered.png"), width_hint, lambda m: log("info", m))
         except Exception as e:
             log("warning", f"[Block {i} | {tid}] Grayscale render failed: {e}")

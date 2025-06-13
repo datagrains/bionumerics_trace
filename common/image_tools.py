@@ -3,14 +3,14 @@ image_tools.py
 
 Provides tools for handling binary image-related operations. Includes functionality to:
 - Save binary data to disk
-- Render grayscale images from raw byte streams
+- Render greyscale images from raw byte streams
 - Detect and extract embedded image data within binary content
 
 Functions:
     - save_binary_output(path, data, announce=lambda m: None, label="binary"):
         Saves raw binary data to the specified file path.
-    - render_grayscale_image(data, path, width, announce=lambda m: None):
-        Renders and saves a grayscale image from binary data given a target width.
+    - render_greyscale_image(data, path, width, announce=lambda m: None):
+        Renders and saves a greyscale image from binary data given a target width.
     - find_embedded_image(binary):
         Scans binary content for recognizable image format headers and extracts the image if found.
 """
@@ -33,18 +33,18 @@ def save_binary_output(path: str, data: bytes, announce: Callable[[str], None] =
     announce(f"Saved {label}: {path}")
 
 
-def render_grayscale_image(data: bytes, path: str, width: int, announce: Callable[[str], None] = lambda m: None) -> None:
+def render_greyscale_image(data: bytes, path: str, width: int, announce: Callable[[str], None] = lambda m: None) -> None:
     """
-    Converts raw binary data into a grayscale image and saves it as a PNG.
+    Converts raw binary data into a greyscale image and saves it as a PNG.
 
     Args:
-        data (bytes): Raw binary data interpreted as grayscale pixel values.
+        data (bytes): Raw binary data interpreted as greyscale pixel values.
         path (str): Destination file path for the rendered image.
         width (int): Width of the resulting image. Height is calculated automatically.
         announce (callable, optional): Callback function for status updates.
 
     Raises:
-        RuntimeError: If the grayscale conversion or rendering fails.
+        RuntimeError: If the greyscale conversion or rendering fails.
     """
     import numpy as np
     import matplotlib.pyplot as plt
@@ -54,11 +54,11 @@ def render_grayscale_image(data: bytes, path: str, width: int, announce: Callabl
         arr = np.frombuffer(data[:width * height],
                             dtype=np.uint8).reshape((height, width))
         if arr.size == 0:
-            raise ValueError("Decoded grayscale image is empty")
+            raise ValueError("Decoded greyscale image is empty")
         plt.imsave(path, arr, cmap="gray")
         announce(f"Rendered image: {path}")
     except Exception as e:
-        raise RuntimeError(f"Grayscale rendering error: {e}")
+        raise RuntimeError(f"Greyscale rendering error: {e}")
 
 
 def find_embedded_image(binary: bytes) -> Tuple[Optional[str], Optional[bytes]]:

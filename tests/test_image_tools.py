@@ -2,7 +2,7 @@ import unittest
 import tempfile
 import os
 from unittest import mock
-from common.image_tools import save_binary_output, render_grayscale_image, find_embedded_image
+from common.image_tools import save_binary_output, render_greyscale_image, find_embedded_image
 
 
 class TestImageTools(unittest.TestCase):
@@ -29,7 +29,7 @@ class TestImageTools(unittest.TestCase):
             path = tmp.name
 
         mock_announce = mock.Mock()
-        render_grayscale_image(data, path, width, announce=mock_announce)
+        render_greyscale_image(data, path, width, announce=mock_announce)
 
         self.assertTrue(os.path.exists(path))
         mock_announce.assert_called_once()
@@ -37,8 +37,8 @@ class TestImageTools(unittest.TestCase):
 
     def test_render_grayscale_image_empty(self):
         with self.assertRaises(RuntimeError) as context:
-            render_grayscale_image(b"", "dummy.png", 10)
-        self.assertIn("Grayscale rendering error", str(context.exception))
+            render_greyscale_image(b"", "dummy.png", 10)
+        self.assertIn("Greyscale rendering error", str(context.exception))
 
     def test_find_embedded_image_png(self):
         sample = b"prefix" + b"\x89PNG\r\n\x1a\n" + b"imagecontentIEND"
