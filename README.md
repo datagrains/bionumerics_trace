@@ -23,7 +23,6 @@ The suite includes unit tests for each module using Python’s `unittest` framew
 - Metadata writing logic with header and data verification.
 - Detection of embedded content and ABI headers.
 
-Tests use `tempfile`, `unittest.mock`, and are structured under a `tests/` directory for maintainability.
 
 ## Logging
 
