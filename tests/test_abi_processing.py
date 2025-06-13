@@ -1,6 +1,8 @@
 import unittest
 import logging
-from common.abi_processing import extract_base64_data  # Replace with your actual module name
+# Replace with your actual module name
+from common.abi_processing import extract_base64_data
+
 
 class TestExtractBase64Data(unittest.TestCase):
 
@@ -28,6 +30,7 @@ class TestExtractBase64Data(unittest.TestCase):
         block = "<Data>YWJjZA==</Data>"  # Already aligned
         result = extract_base64_data(block)
         self.assertEqual(result, "YWJjZA==")
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)

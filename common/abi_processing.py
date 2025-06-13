@@ -15,6 +15,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def extract_base64_data(block: str, try_decompress: bool = True) -> bytes:
     """
     Extracts ABI-formatted base64 data from a trace block, cleans invalid characters,
@@ -29,7 +30,8 @@ def extract_base64_data(block: str, try_decompress: bool = True) -> bytes:
     """
     match = re.search(r"<Data.*?>(.*?)</Data>", block, re.DOTALL)
     if not match:
-        logger.info("No <Data> tag found — base64 may exist but is not ABI-formatted.")
+        logger.info(
+            "No <Data> tag found — base64 may exist but is not ABI-formatted.")
         return b""  # return raw bytes instead of string
 
     raw_b64 = match.group(1)
@@ -38,11 +40,13 @@ def extract_base64_data(block: str, try_decompress: bool = True) -> bytes:
     cleaned = re.sub(r"[^A-Za-z0-9+/=]", "", raw_b64)
     cleaned_len = len(cleaned)
     if cleaned_len < original_len:
-        logger.info(f"Removed {original_len - cleaned_len} invalid base64 characters.")
+        logger.info(
+            f"Removed {original_len - cleaned_len} invalid base64 characters.")
 
     padding = (-cleaned_len) % 4
     if padding:
-        logger.info(f"Applied {padding} '=' padding characters for base64 alignment.")
+        logger.info(
+            f"Applied {padding} '=' padding characters for base64 alignment.")
 
     padded = cleaned + "=" * padding
     logger.info(f"Prepared base64 string of length {len(padded)}.")
@@ -57,12 +61,15 @@ def extract_base64_data(block: str, try_decompress: bool = True) -> bytes:
     if try_decompress:
         try:
             decompressed = zlib.decompress(decoded)
-            logger.info(f"Zlib decompression succeeded: {len(decompressed)} bytes.")
+            logger.info(
+                f"Zlib decompression succeeded: {len(decompressed)} bytes.")
             return decompressed
         except zlib.error as e:
-            logger.info(f"ℹBase64 data was not compressed or decompression failed: {e}")
+            logger.info(
+                f"ℹBase64 data was not compressed or decompression failed: {e}")
 
     return decoded
+
 
 def has_abi_header(data: bytes) -> bool:
     """
@@ -75,4 +82,3 @@ def has_abi_header(data: bytes) -> bool:
         bool: True if the data starts with the 'ABIF' signature, False otherwise.
     """
     return data[:4] == b'\x41\x42\x49\x46'  # or simply b'ABIF'
-

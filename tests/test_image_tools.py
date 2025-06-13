@@ -4,6 +4,7 @@ import os
 from unittest import mock
 from common.image_tools import save_binary_output, render_grayscale_image, find_embedded_image
 
+
 class TestImageTools(unittest.TestCase):
 
     def test_save_binary_output(self):
@@ -12,7 +13,8 @@ class TestImageTools(unittest.TestCase):
             path = tmp.name
 
         mock_announce = mock.Mock()
-        save_binary_output(path, data, announce=mock_announce, label="unit test binary")
+        save_binary_output(path, data, announce=mock_announce,
+                           label="unit test binary")
 
         with open(path, "rb") as f:
             self.assertEqual(f.read(), data)
@@ -48,6 +50,7 @@ class TestImageTools(unittest.TestCase):
         ext, blob = find_embedded_image(b"no signature here")
         self.assertIsNone(ext)
         self.assertIsNone(blob)
+
 
 if __name__ == "__main__":
     unittest.main()

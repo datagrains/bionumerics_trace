@@ -5,6 +5,7 @@ import csv
 from unittest import mock
 from common.metadata_writer import write_metadata
 
+
 class TestMetadataWriter(unittest.TestCase):
 
     def test_write_metadata_creates_file_with_correct_content(self):
@@ -21,7 +22,8 @@ class TestMetadataWriter(unittest.TestCase):
         with open(path, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f, delimiter="\t")
             rows = list(reader)
-            self.assertEqual(rows, [{"name": "Alice", "age": "30"}, {"name": "Bob", "age": "25"}])
+            self.assertEqual(rows, [{"name": "Alice", "age": "30"}, {
+                             "name": "Bob", "age": "25"}])
 
         mock_announce.assert_called_once_with(f"Metadata written to {path}")
         os.remove(path)
@@ -39,6 +41,7 @@ class TestMetadataWriter(unittest.TestCase):
 
         mock_announce.assert_not_called()
         os.remove(path)
+
 
 if __name__ == "__main__":
     unittest.main()

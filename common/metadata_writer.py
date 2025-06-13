@@ -11,7 +11,8 @@ Functions:
 import csv
 from typing import List, Dict, Callable
 
-def write_metadata(metadata: List[Dict[str, str]], path: str, announce: Callable[[str], None] = lambda m: None) -> None:   
+
+def write_metadata(metadata: List[Dict[str, str]], path: str, announce: Callable[[str], None] = lambda m: None) -> None:
     """
     Writes metadata records to a tab-separated file at the specified path.
 
@@ -26,7 +27,8 @@ def write_metadata(metadata: List[Dict[str, str]], path: str, announce: Callable
     if not metadata:
         return
     with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=metadata[0].keys(), delimiter="\t")
+        writer = csv.DictWriter(
+            f, fieldnames=metadata[0].keys(), delimiter="\t")
         writer.writeheader()
         writer.writerows(metadata)
     announce(f"Metadata written to {path}")

@@ -1,6 +1,7 @@
 import unittest
 from common.block_utils import parse_blocks, safe_get
 
+
 class TestBlockUtils(unittest.TestCase):
 
     def test_single_block(self):
@@ -37,6 +38,7 @@ class TestBlockUtils(unittest.TestCase):
         block = "No match here"
         result = safe_get(r"<Missing>(.*?)</Missing>", block)
         self.assertEqual(result, "")
+
 
 if __name__ == "__main__":
     unittest.main()

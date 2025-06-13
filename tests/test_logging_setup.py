@@ -6,6 +6,7 @@ import logging
 from unittest import mock
 from common.logging_setup import setup_logging
 
+
 class TestLoggingSetup(unittest.TestCase):
 
     def test_logger_creation_and_file(self):
@@ -43,6 +44,7 @@ class TestLoggingSetup(unittest.TestCase):
 
         self.assertIn(mock_file_handler, logger.handlers)
         self.assertIn(mock_stream_handler, logger.handlers)
+
 
 if __name__ == "__main__":
     unittest.main()

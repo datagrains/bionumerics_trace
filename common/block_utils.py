@@ -12,7 +12,8 @@ Functions:
 import re
 from typing import List
 
-def parse_blocks(text: str) -> List[str]:    
+
+def parse_blocks(text: str) -> List[str]:
     """
     Parses the input text into valid ABI trace blocks based on known start and end delimiters.
 
@@ -43,6 +44,7 @@ def parse_blocks(text: str) -> List[str]:
         blocks.append("\n".join(current))
 
     return blocks
+
 
 def safe_get(pat: str, block: str) -> str:
     """Returns the first regex group match from a block."""

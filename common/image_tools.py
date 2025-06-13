@@ -15,10 +15,8 @@ Functions:
         Scans binary content for recognizable image format headers and extracts the image if found.
 """
 
-import os
-import numpy as np
-import matplotlib.pyplot as plt
 from typing import Callable, Tuple, Optional
+
 
 def save_binary_output(path: str, data: bytes, announce: Callable[[str], None] = lambda m: None, label: str = "binary") -> None:
     """
@@ -33,6 +31,7 @@ def save_binary_output(path: str, data: bytes, announce: Callable[[str], None] =
     with open(path, "wb") as f:
         f.write(data)
     announce(f"Saved {label}: {path}")
+
 
 def render_grayscale_image(data: bytes, path: str, width: int, announce: Callable[[str], None] = lambda m: None) -> None:
     """
@@ -52,13 +51,15 @@ def render_grayscale_image(data: bytes, path: str, width: int, announce: Callabl
 
     try:
         height = len(data) // width
-        arr = np.frombuffer(data[:width * height], dtype=np.uint8).reshape((height, width))
+        arr = np.frombuffer(data[:width * height],
+                            dtype=np.uint8).reshape((height, width))
         if arr.size == 0:
             raise ValueError("Decoded grayscale image is empty")
         plt.imsave(path, arr, cmap="gray")
         announce(f"Rendered image: {path}")
     except Exception as e:
         raise RuntimeError(f"Grayscale rendering error: {e}")
+
 
 def find_embedded_image(binary: bytes) -> Tuple[Optional[str], Optional[bytes]]:
     """

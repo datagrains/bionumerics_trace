@@ -8,10 +8,10 @@ Functions:
         Creates a logger with file and console handlers using standard formatting.
 """
 
-import os
 import logging
 
-def setup_logging(log_dir: str = "logs", log_file: str = "trace_parser.log") -> logging.Logger:   
+
+def setup_logging(log_dir: str = "logs", log_file: str = "trace_parser.log") -> logging.Logger:
     """
     Sets up and returns a logger that writes to both a log file and the console.
 
@@ -33,9 +33,11 @@ def setup_logging(log_dir: str = "logs", log_file: str = "trace_parser.log") -> 
 
     # Only add handlers once
     if not logger.handlers:
-        log_format = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+        log_format = logging.Formatter(
+            "%(asctime)s [%(levelname)s] %(message)s")
 
-        file_handler = logging.FileHandler(os.path.join(log_dir, log_file), mode="w", encoding="utf-8")
+        file_handler = logging.FileHandler(os.path.join(
+            log_dir, log_file), mode="w", encoding="utf-8")
         file_handler.setFormatter(log_format)
         file_handler.setLevel(logging.INFO)
 
