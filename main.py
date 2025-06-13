@@ -136,3 +136,8 @@ def process_all_blocks(input_file: str, output_root: str, width_hint: int = 512)
 if __name__ == "__main__":
     process_all_blocks(
         "data/inputs/SEQTRACEFILES_TAB_delimited.txt", "data/outputs", 512)
+import matplotlib
+import numpy
+
+print(f"matplotlib version: {matplotlib.__version__}")
+print(f"numpy version: {numpy.__version__}")

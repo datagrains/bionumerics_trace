@@ -1,0 +1,16 @@
+# Linting and formatting
+black
+flake8
+isort
+autoflake
+autopep8
+
+# Type checking
+mypy
+
+# Testing
+pytest
+pytest-cov
+
+# Optional: for generating docs or exploring notebooks
+jupyter
