@@ -32,7 +32,7 @@ def save_binary_output(path: str, data: bytes, announce: Callable[[str], None] =
     """
     with open(path, "wb") as f:
         f.write(data)
-    announce(f"💾 Saved {label}: {path}")
+    announce(f"Saved {label}: {path}")
 
 def render_grayscale_image(data: bytes, path: str, width: int, announce: Callable[[str], None] = lambda m: None) -> None:
     """
@@ -56,7 +56,7 @@ def render_grayscale_image(data: bytes, path: str, width: int, announce: Callabl
         if arr.size == 0:
             raise ValueError("Decoded grayscale image is empty")
         plt.imsave(path, arr, cmap="gray")
-        announce(f"🖼️ Rendered image: {path}")
+        announce(f"Rendered image: {path}")
     except Exception as e:
         raise RuntimeError(f"Grayscale rendering error: {e}")
 

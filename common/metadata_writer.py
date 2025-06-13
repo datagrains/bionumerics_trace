@@ -29,4 +29,4 @@ def write_metadata(metadata: List[Dict[str, str]], path: str, announce: Callable
         writer = csv.DictWriter(f, fieldnames=metadata[0].keys(), delimiter="\t")
         writer.writeheader()
         writer.writerows(metadata)
-    announce(f"📝 Metadata written to {path}")
+    announce(f"Metadata written to {path}")

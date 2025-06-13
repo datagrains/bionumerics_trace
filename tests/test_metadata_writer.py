@@ -23,7 +23,7 @@ class TestMetadataWriter(unittest.TestCase):
             rows = list(reader)
             self.assertEqual(rows, [{"name": "Alice", "age": "30"}, {"name": "Bob", "age": "25"}])
 
-        mock_announce.assert_called_once_with(f"📝 Metadata written to {path}")
+        mock_announce.assert_called_once_with(f"Metadata written to {path}")
         os.remove(path)
 
     def test_write_metadata_empty_input_does_nothing(self):
