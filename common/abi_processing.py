@@ -1,3 +1,13 @@
+"""
+abi_processing.py
+
+Utilities for handling ABI-formatted base64 data within sequencing trace files.
+
+Functions:
+    - extract_base64_data(block, try_decompress=True): Extracts, cleans, decodes, and optionally decompresses base64-encoded ABI data from a trace block.
+    - has_abi_header(data): Checks whether the given binary data begins with the 'ABIF' header typical of ABI-formatted files.
+"""
+
 import re
 import base64
 import zlib
@@ -5,7 +15,18 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def extract_base64_data(block, try_decompress=True):
+def extract_base64_data(block: str, try_decompress: bool = True) -> bytes:
+    """
+    Extracts ABI-formatted base64 data from a trace block, cleans invalid characters,
+    applies padding, decodes the base64 string, and optionally attempts zlib decompression.
+
+    Args:
+        block (str): The raw text block potentially containing base64-encoded data.
+        try_decompress (bool): Whether to attempt zlib decompression after decoding. Defaults to True.
+
+    Returns:
+        bytes: The decoded (and optionally decompressed) binary data, or an empty byte string on failure.
+    """
     match = re.search(r"<Data.*?>(.*?)</Data>", block, re.DOTALL)
     if not match:
         logger.info("🔍 No <Data> tag found — base64 may exist but is not ABI-formatted.")
@@ -43,6 +64,15 @@ def extract_base64_data(block, try_decompress=True):
 
     return decoded
 
-def has_abi_header(data):
+def has_abi_header(data: bytes) -> bool:
+    """
+    Checks if the given binary data begins with the 'ABIF' header, indicating ABI format.
+
+    Args:
+        data (bytes): The binary data to inspect.
+
+    Returns:
+        bool: True if the data starts with the 'ABIF' signature, False otherwise.
+    """
     return data[:4] == b'\x41\x42\x49\x46'  # or simply b'ABIF'
 

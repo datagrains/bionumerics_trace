@@ -1,13 +1,52 @@
+"""
+image_tools.py
+
+Provides tools for handling binary image-related operations. Includes functionality to:
+- Save binary data to disk
+- Render grayscale images from raw byte streams
+- Detect and extract embedded image data within binary content
+
+Functions:
+    - save_binary_output(path, data, announce=lambda m: None, label="binary"):
+        Saves raw binary data to the specified file path.
+    - render_grayscale_image(data, path, width, announce=lambda m: None):
+        Renders and saves a grayscale image from binary data given a target width.
+    - find_embedded_image(binary):
+        Scans binary content for recognizable image format headers and extracts the image if found.
+"""
+
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from typing import Callable, Tuple, Optional
 
-def save_binary_output(path, data, announce=lambda m: None, label="binary"):
+def save_binary_output(path: str, data: bytes, announce: Callable[[str], None] = lambda m: None, label: str = "binary") -> None:
+    """
+    Saves binary data to a specified file path and announces the action using a callback.
+
+    Args:
+        path (str): File system path where the binary data will be saved.
+        data (bytes): The binary content to be written to disk.
+        announce (callable, optional): Callback function for status reporting. Defaults to a no-op.
+        label (str, optional): Descriptive label for logging. Defaults to "binary".
+    """
     with open(path, "wb") as f:
         f.write(data)
     announce(f"💾 Saved {label}: {path}")
 
-def render_grayscale_image(data, path, width, announce=lambda m: None):
+def render_grayscale_image(data: bytes, path: str, width: int, announce: Callable[[str], None] = lambda m: None) -> None:
+    """
+    Converts raw binary data into a grayscale image and saves it as a PNG.
+
+    Args:
+        data (bytes): Raw binary data interpreted as grayscale pixel values.
+        path (str): Destination file path for the rendered image.
+        width (int): Width of the resulting image. Height is calculated automatically.
+        announce (callable, optional): Callback function for status updates.
+
+    Raises:
+        RuntimeError: If the grayscale conversion or rendering fails.
+    """
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -21,7 +60,20 @@ def render_grayscale_image(data, path, width, announce=lambda m: None):
     except Exception as e:
         raise RuntimeError(f"Grayscale rendering error: {e}")
 
-def find_embedded_image(binary):
+def find_embedded_image(binary: bytes) -> Tuple[Optional[str], Optional[bytes]]:
+    """
+    Scans binary content for known image file signatures and extracts the corresponding image segment.
+
+    Supported formats include PNG, JPG, GIF (87a/89a), and BMP.
+
+    Args:
+        binary (bytes): Binary data potentially containing an embedded image.
+
+    Returns:
+        tuple[str | None, bytes | None]: A tuple containing:
+            - The file extension string (e.g. 'png') if detected, or None
+            - The extracted image bytes, or None if not found
+    """
     signatures = {
         b"\x89PNG\r\n\x1a\n": (b"IEND", "png"),
         b"\xff\xd8\xff": (b"\xff\xd9", "jpg"),
