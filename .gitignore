@@ -1,0 +1,48 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Specific pycache folders
+common/__pycache__/
+tests/__pycache__/
+
+# Virtual environment folders
+venv/
+.env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+coverage.xml
+*.cover
+.cache
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# macOS / Linux artifacts
+.DS_Store
+Thumbs.db
+
+# Local environment variable files
+.env.local
+.env.*
+
+# MyPy / type checker
+.mypy_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
