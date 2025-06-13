@@ -2,7 +2,7 @@ import os
 import base64
 from common.logging_setup import setup_logging
 from common.block_utils import parse_blocks, safe_get
-from common.abi_processing import extract_base64_data
+from common.abi_processing import extract_base64_data, has_abi_header
 from common.image_tools import (
     save_binary_output,
     render_grayscale_image,
@@ -47,17 +47,21 @@ def process_all_blocks(input_file, output_root, width_hint=512):
             else:
                 announce(f"🔍 [Block {i} | {tid}] Base64 decoded successfully.")
 
+                # ABI header detection
+                if has_abi_header(data):
+                    announce(f"[Block {i} | {tid}] ✅ ABI header detected.")
+                else:
+                    warn(f"[Block {i} | {tid}] ⚠️ ABI header not found — this may not be a valid ABI trace file.")
+
         except Exception as e:
             data = b""
             status = f"base64 decoding error: {e}"
             fail(f"⚠️ [Block {i} | {tid}] Base64 decoding failed: {e}")
 
-        # Save placeholder or actual ABI binary
         save_binary_output(os.path.join(dirs["bin"], fname), data, announce)
         if not data:
-            warn(f"⚠️ [Block {i} | {tid}] Saved placeholder binary — decode failed, file contains no usable data.")
+            warn(f"[Block {i} | {tid}] Saved placeholder binary — decode failed, file contains no usable data.")
 
-        # Attempt grayscale rendering
         grayscale_path = os.path.join(dirs["img"], f"{os.path.splitext(fname)[0]}_rendered.png")
         announce(f"🖼️ [Block {i} | {tid}] Attempting grayscale rendering...")
         try:
@@ -65,7 +69,6 @@ def process_all_blocks(input_file, output_root, width_hint=512):
         except Exception as e:
             warn(f"❌ [Block {i} | {tid}] Grayscale render failed: {e}")
 
-        # Attempt embedded image extraction
         announce(f"🔎 [Block {i} | {tid}] Checking for embedded chromatogram image...")
         try:
             ext, img = find_embedded_image(data)

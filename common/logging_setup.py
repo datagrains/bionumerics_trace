@@ -15,9 +15,11 @@ def setup_logging(log_dir="logs", log_file="trace_parser.log"):
 
         file_handler = logging.FileHandler(os.path.join(log_dir, log_file), mode="w", encoding="utf-8")
         file_handler.setFormatter(log_format)
+        file_handler.setLevel(logging.INFO)
 
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(logging.Formatter("%(message)s"))
+        console_handler.setLevel(logging.INFO)
 
         logger.addHandler(file_handler)
         logger.addHandler(console_handler)
