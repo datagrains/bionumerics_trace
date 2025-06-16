@@ -11,6 +11,7 @@ mypy
 # Testing
 pytest
 pytest-cov
+unittest
 
 # Optional: for generating docs or exploring notebooks
 jupyter
