@@ -12,5 +12,8 @@ mypy
 pytest
 pytest-cov
 
+# Others
+numpy
+
 # Optional: for generating docs or exploring notebooks
 jupyter
