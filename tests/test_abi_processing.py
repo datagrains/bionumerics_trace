@@ -18,11 +18,6 @@ class TestABIProcessing(unittest.TestCase):
         # Clean up logging
         logging.getLogger().removeHandler(self.handler)
         self.log_capture.close()
-        
-        result = extract_base64_data(block, try_decompress=False)
-        self.assertEqual(result, original_data)
-        self.assertIn("Base64 decoded successfully", self.log_capture.getvalue())
-        self.assertNotIn("Zlib decompression", self.log_capture.getvalue())
 
     def test_has_abi_header_valid(self):
         # Test data with valid ABIF header
