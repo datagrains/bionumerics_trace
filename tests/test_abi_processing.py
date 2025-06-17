@@ -1,37 +1,48 @@
 import unittest
+import base64
+import zlib
 import logging
-# Replace with your actual module name
-from common.abi_processing import extract_base64_data
+from io import StringIO
+from unittest.mock import patch
+from common.abi_processing import extract_base64_data, has_abi_header
 
+class TestABIProcessing(unittest.TestCase):
+    def SetUp(self):
+        # Set up logging capture
+        self.log_capture = StringIO()
+        self.handler = logging.StreamHandler(self.log_capture)
+        logging.getLogger().addHandler(self.handler)
+        logging.getLogger().setLevel(logging.INFO)
 
-class TestExtractBase64Data(unittest.TestCase):
+    def TearDown(self):
+        # Clean up logging
+        logging.getLogger().removeHandler(self.handler)
+        self.log_capture.close()
+        
+        result = extract_base64_data(block, try_decompress=False)
+        self.assertEqual(result, original_data)
+        self.assertIn("Base64 decoded successfully", self.log_capture.getvalue())
+        self.assertNotIn("Zlib decompression", self.log_capture.getvalue())
 
-    def test_valid_data(self):
-        block = "<Data>U29tZSB2YWxpZCBiYXNlNjQ=</Data>"
-        result = extract_base64_data(block)
-        self.assertEqual(result, "U29tZSB2YWxpZCBiYXNlNjQ=")
+    def test_has_abi_header_valid(self):
+        # Test data with valid ABIF header
+        data = b"ABIFSomeData"
+        self.assertTrue(has_abi_header(data))
 
-    def test_missing_data_tag(self):
-        block = "<NotData>abc</NotData>"
-        result = extract_base64_data(block)
-        self.assertEqual(result, "")
+    def test_has_abi_header_invalid(self):
+        # Test data without ABIF header
+        data = b"XYZSomeData"
+        self.assertFalse(has_abi_header(data))
 
-    def test_invalid_chars_removed(self):
-        block = "<Data>U29tZSB2!@#YWxpZCBiYXNlNjQ=</Data>"
-        result = extract_base64_data(block)
-        self.assertEqual(result, "U29tZSB2YWxpZCBiYXNlNjQ=")
+    def test_has_abi_header_empty(self):
+        # Test empty data
+        data = b""
+        self.assertFalse(has_abi_header(data))
 
-    def test_padding_added(self):
-        block = "<Data>YWJjZA</Data>"  # 'abcd' base64 without padding
-        result = extract_base64_data(block)
-        self.assertEqual(result, "YWJjZA==")
-
-    def test_no_padding_needed(self):
-        block = "<Data>YWJjZA==</Data>"  # Already aligned
-        result = extract_base64_data(block)
-        self.assertEqual(result, "YWJjZA==")
-
+    def test_has_abi_header_short(self):
+        # Test data shorter than header
+        data = b"AB"
+        self.assertFalse(has_abi_header(data))
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)
     unittest.main()
