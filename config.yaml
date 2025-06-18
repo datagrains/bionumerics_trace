@@ -1,0 +1,6 @@
+# Filepaths
+input_path: "data/inputs/SEQTRACEFILES_TAB_delimited.txt"
+output_root: "data/outputs"
+
+# Misc
+width_hint: 512

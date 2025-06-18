@@ -39,6 +39,5 @@ class TestBlockUtils(unittest.TestCase):
         result = safe_get(r"<Missing>(.*?)</Missing>", block)
         self.assertEqual(result, "")
 
-
 if __name__ == "__main__":
     unittest.main()

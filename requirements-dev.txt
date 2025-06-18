@@ -1,3 +1,8 @@
+# Main requirements
+numpy
+matplotlib
+pyyaml
+
 # Linting and formatting
 black
 flake8
@@ -11,10 +16,6 @@ mypy
 # Testing
 pytest
 pytest-cov
-
-# Others
-numpy
-matplotlib
 
 # Optional: for generating docs or exploring notebooks
 jupyter
