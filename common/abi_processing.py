@@ -84,3 +84,8 @@ def has_abi_header(data: bytes) -> bool:
     """
     return data[:4] == b'\x41\x42\x49\x46'  # or simply b'ABIF'
 
+def is_ab1_file(path):
+    return os.path.isfile(path) and path.lower().endswith(".ab1")
+
+def list_ab1_files(directory):
+    return [os.path.join(directory, f) for f in os.listdir(directory) if f.lower().endswith(".ab1")]
