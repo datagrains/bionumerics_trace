@@ -12,6 +12,7 @@ import re
 import base64
 import zlib
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -82,3 +83,4 @@ def has_abi_header(data: bytes) -> bool:
         bool: True if the data starts with the 'ABIF' signature, False otherwise.
     """
     return data[:4] == b'\x41\x42\x49\x46'  # or simply b'ABIF'
+
