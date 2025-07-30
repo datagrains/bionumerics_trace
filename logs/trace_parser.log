@@ -1,33 +1,7 @@
-2025-06-18 09:36:53,990 [WARNING] [Block 1 | 000001CTG29095454216519702500001] No base64 data.
-2025-06-18 09:36:53,991 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_BhCS1137n.ab1
-2025-06-18 09:36:53,991 [WARNING] [Block 1 | 000001CTG29095454216519702500001] Saved placeholder binary.
-2025-06-18 09:36:53,991 [INFO] [Block 1 | 000001CTG29095454216519702500001] Attempting greyscale rendering...
-2025-06-18 09:36:55,215 [WARNING] [Block 1 | 000001CTG29095454216519702500001] Grayscale render failed: Greyscale rendering error: Decoded greyscale image is empty
-2025-06-18 09:36:55,216 [INFO] [Block 1 | 000001CTG29095454216519702500001] Checking for embedded chromatogram image...
-2025-06-18 09:36:55,216 [WARNING] [Block 1 | 000001CTG29095454216519702500001] No embedded image found.
-2025-06-18 09:36:55,217 [INFO] [Block 1 | 000001CTG29095454216519702500001] Completed with status: no base64 data
-2025-06-18 09:36:55,242 [INFO] [Block 2 | 000002CTG29095454216519702500001] Base64 decoded successfully.
-2025-06-18 09:36:55,243 [WARNING] [Block 2 | 000002CTG29095454216519702500001] ABI header not found.
-2025-06-18 09:36:55,244 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_CS140f.ab1
-2025-06-18 09:36:55,245 [INFO] [Block 2 | 000002CTG29095454216519702500001] Attempting greyscale rendering...
-2025-06-18 09:36:55,340 [INFO] Rendered image: data/outputs\grayscale_explorations\B.bacilliformis_CS140f_rendered.png
-2025-06-18 09:36:55,342 [INFO] [Block 2 | 000002CTG29095454216519702500001] Checking for embedded chromatogram image...
-2025-06-18 09:36:55,343 [WARNING] [Block 2 | 000002CTG29095454216519702500001] No embedded image found.
-2025-06-18 09:36:55,344 [INFO] [Block 2 | 000002CTG29095454216519702500001] Completed with status: success
-2025-06-18 09:36:55,389 [INFO] [Block 3 | 000003CTG29095454216519702500001] Base64 decoded successfully.
-2025-06-18 09:36:55,389 [WARNING] [Block 3 | 000003CTG29095454216519702500001] ABI header not found.
-2025-06-18 09:36:55,391 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_CS443f.ab1
-2025-06-18 09:36:55,391 [INFO] [Block 3 | 000003CTG29095454216519702500001] Attempting greyscale rendering...
-2025-06-18 09:36:55,395 [INFO] Rendered image: data/outputs\grayscale_explorations\B.bacilliformis_CS443f_rendered.png
-2025-06-18 09:36:55,396 [INFO] [Block 3 | 000003CTG29095454216519702500001] Checking for embedded chromatogram image...
-2025-06-18 09:36:55,398 [WARNING] [Block 3 | 000003CTG29095454216519702500001] No embedded image found.
-2025-06-18 09:36:55,398 [INFO] [Block 3 | 000003CTG29095454216519702500001] Completed with status: success
-2025-06-18 09:36:55,426 [WARNING] [Block 4 | 000004CTG29095454216519702500001] No base64 data.
-2025-06-18 09:36:55,428 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_CSH1f.ab1
-2025-06-18 09:36:55,428 [WARNING] [Block 4 | 000004CTG29095454216519702500001] Saved placeholder binary.
-2025-06-18 09:36:55,430 [INFO] [Block 4 | 000004CTG29095454216519702500001] Attempting greyscale rendering...
-2025-06-18 09:36:55,431 [WARNING] [Block 4 | 000004CTG29095454216519702500001] Grayscale render failed: Greyscale rendering error: Decoded greyscale image is empty
-2025-06-18 09:36:55,431 [INFO] [Block 4 | 000004CTG29095454216519702500001] Checking for embedded chromatogram image...
-2025-06-18 09:36:55,432 [WARNING] [Block 4 | 000004CTG29095454216519702500001] No embedded image found.
-2025-06-18 09:36:55,434 [INFO] [Block 4 | 000004CTG29095454216519702500001] Completed with status: no base64 data
-2025-06-18 09:36:55,442 [INFO] Metadata written to data/outputs\trace_metadata.tsv
+2025-07-01 09:03:44,566 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_BhCS1137n.ab1
+2025-07-01 09:03:45,774 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_CS140f.ab1
+2025-07-01 09:03:45,851 [INFO] Rendered image: data/outputs\grayscale_explorations\B.bacilliformis_CS140f_rendered.png
+2025-07-01 09:03:45,872 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_CS443f.ab1
+2025-07-01 09:03:45,876 [INFO] Rendered image: data/outputs\grayscale_explorations\B.bacilliformis_CS443f_rendered.png
+2025-07-01 09:03:45,900 [INFO] Saved binary: data/outputs\abi_output\B.bacilliformis_CSH1f.ab1
+2025-07-01 09:03:45,903 [INFO] Metadata written to data/outputs\trace_metadata.tsv
