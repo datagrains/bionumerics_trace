@@ -1,0 +1,34 @@
+LOCUS       sanger_seq               966 bp    ds-DNA  linear   UNK 04-AUG-2025
+DEFINITION  Quality-trimmed from .ab1 file.
+ACCESSION   Spec_2xU6gRNA_1
+VERSION     Spec_2xU6gRNA_1
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  Bartonella bacilliformis
+            .
+FEATURES             Location/Qualifiers
+     source          1..966
+                     /organism="Bartonella bacilliformis"
+                     /mol_type="genomic DNA"
+                     /note="Quality-trimmed sequence"
+     gene            1..966
+                     /gene="placeholder_gene"
+ORIGIN
+        1 ttaccctgtt atccctatat taccgccttt tagtgagctg ataccgctcg ccgcagccga
+       61 acgaccgagc gcagcgagtc agtgagcgag gaagcggaag agcgcccaat acgcaaaccg
+      121 cctctccccg cgcgttggcc gattcattaa tgcagctggc acgacaggtt tcccgactgg
+      181 aaagcgggca gtgagcgcaa cgcaattaat gtgagttagc tcactcatta ggcaccccag
+      241 gctttacact ttatgcttcc ggctcgtatg ttgtgtggaa ttgtgagcgg ataacaattt
+      301 cacacaggaa acagctatga ccatgattac gccaagcttg catgcctgca ggtcgacggt
+      361 ctcgcctcaa aaaagcaccg actcggtgcc actttttcaa gttgataacg gactagcctt
+      421 attttaactt gctatttcta gctctaaaac ccgccgagga ccaaattttg cggtgtttcg
+      481 tcctttccac aagatatata aagccaagaa atcgaaatac tttcaagtta cggtaagcat
+      541 atgatagtcc attttaaaac ataattttaa aactgcaaac tacccaagaa attattactt
+      601 tctacgtcac gtattttgta ctaatatctt tgtgtttaca gtcaaattaa ttccaattat
+      661 ctctctaaca gccttgtatc gtatatgcaa atatgaagga atcatgggaa ataggccctc
+      721 aaaaaagcac cgactcggtg ccactttttc aagttgataa cggactagcc ttattttaac
+      781 ttgctatttc tagctctaaa acccgccgcc gaggaccaaa ttcggtgttt cgtcctttcc
+      841 acaagatata taaagccaag aaatcgaaat actttcaagt tacggtaagc atatgatagt
+      901 ccattttaaa acataatttt aaaactgcaa actacccaag aaattattac tttctacgtc
+      961 acgtat
+//

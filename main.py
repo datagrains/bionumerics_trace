@@ -12,12 +12,13 @@ from QUEEN import cutsite
 import numpy as np
 
 # Input filenames (without extensions)
-ab1_files = ["B_bacilliformis_CSH1f",
-             "Spec_2xU6gRNA_1",
-             "B.bacilliformis_BhCS1137n",
-             "B.bacilliformis_CS140f",
-             "B.bacilliformis_CS443f",
-             ]
+ab1_files = [
+    "B_bacilliformis_CSH1f",
+    "Spec_2xU6gRNA_1",
+    "B.bacilliformis_BhCS1137n",
+    "B.bacilliformis_CS140f",
+    "B.bacilliformis_CS443f",
+]
 
 # Directories
 input_dir = "data/inputs/ab1_files"
@@ -28,9 +29,6 @@ output_dir_images = "data/outputs/trace_images"
 ab1_paths = [os.path.join(input_dir, f"{filename}.ab1") for filename in ab1_files]
 
 def trim_ab1_by_quality(record, threshold=20, min_run=5):
-    """
-    Trims low-quality ends from a Sanger sequencing record.
-    """
     qualities = record.letter_annotations["phred_quality"]
     sequence = str(record.seq)
 
@@ -52,9 +50,6 @@ def trim_ab1_by_quality(record, threshold=20, min_run=5):
     return sequence[start:end]
 
 def convert_ab1_to_genbank(ab1_files, output_dir=output_dir_genbank):
-    """
-    Converts a list of .ab1 files to GenBank format with quality-trimmed sequences.
-    """
     os.makedirs(output_dir, exist_ok=True)
     failed_files = []
 
@@ -83,7 +78,6 @@ def convert_ab1_to_genbank(ab1_files, output_dir=output_dir_genbank):
                 }
             )
 
-            # Add source feature
             gb_record.features.append(
                 SeqFeature(
                     FeatureLocation(start=0, end=len(trimmed_sequence)),
@@ -96,7 +90,6 @@ def convert_ab1_to_genbank(ab1_files, output_dir=output_dir_genbank):
                 )
             )
 
-            # Add dummy gene feature
             gb_record.features.append(
                 SeqFeature(
                     FeatureLocation(start=0, end=len(trimmed_sequence)),
@@ -104,22 +97,6 @@ def convert_ab1_to_genbank(ab1_files, output_dir=output_dir_genbank):
                     qualifiers={"gene": "placeholder_gene"}
                 )
             )
-
-            # Add dummy CDS feature
-            # coding_seq = trimmed_sequence[:len(trimmed_sequence) - len(trimmed_sequence) % 3]
-            # translation = str(Seq(coding_seq).translate(to_stop=True))
-
-            # gb_record.features.append(
-            #     SeqFeature(
-            #         FeatureLocation(start=0, end=len(coding_seq)),
-            #         type="CDS",
-            #         qualifiers={
-            #             "gene": "placeholder_gene",
-            #             "product": "hypothetical protein",
-            #             "translation": translation
-            #         }
-            #     )
-            # )
 
             with open(gb_filepath, "w") as output_handle:
                 SeqIO.write(gb_record, output_handle, "genbank")
@@ -138,9 +115,6 @@ def convert_ab1_to_genbank(ab1_files, output_dir=output_dir_genbank):
         print("\nAll files processed successfully.")
 
 def process_sanger_sequences(samples, linebreak=200, start=None, end=None):
-    """
-    Processes multiple Sanger sequencing files and saves the output plots.
-    """
     os.makedirs(output_dir_images, exist_ok=True)
 
     for sample in samples:
@@ -162,10 +136,10 @@ def process_sanger_sequences(samples, linebreak=200, start=None, end=None):
         except Exception as e:
             print(f"Fail: Could not generate trace for {sample['abipath']}: {e}")
 
-# Convert AB1 files to GenBank
+# Step 1: Convert AB1 files to GenBank
 convert_ab1_to_genbank(ab1_paths)
 
-# Build samples list dynamically
+# Step 2: Build samples list
 samples = []
 for filename in ab1_files:
     gb_path = os.path.join(output_dir_genbank, f"{filename}_extracted.gb")
@@ -176,5 +150,5 @@ for filename in ab1_files:
             "output": os.path.join(output_dir_images, f"{filename}_extracted.png")
         })
 
-# Generate trace plots
+# Step 3: Generate trace plots (called only once)
 process_sanger_sequences(samples)

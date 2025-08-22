@@ -1,0 +1,29 @@
+LOCUS       sanger_seq               662 bp    ds-DNA  linear   UNK 04-AUG-2025
+DEFINITION  Quality-trimmed from .ab1 file.
+ACCESSION   B.bacilliformis_CS443f
+VERSION     B.bacilliformis_CS443f
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  Bartonella bacilliformis
+            .
+FEATURES             Location/Qualifiers
+     source          1..662
+                     /organism="Bartonella bacilliformis"
+                     /mol_type="genomic DNA"
+                     /note="Quality-trimmed sequence"
+     gene            1..662
+                     /gene="placeholder_gene"
+ORIGIN
+        1 tgcctccatt cgtcttatct caaaggttcc aactcttgct gctatggcat ataaatacag
+       61 tattgggcaa ccttttgttt atccacgtaa tgaccttaat tacgctacaa atttccttca
+      121 tatgtgcttc tctgttcctt gtgaagaata caaaattagc cctgttattg ctcgagctat
+      181 ggatcgaatt tttactcttc atgcagatca tgaacaaaat gcatctacat caacagtacg
+      241 ccttgcaggt tcatcaggag ctaatccgtt tgcatgtatt gcagcaggtg ttgcatgcct
+      301 ttgggggcca gctcatggtg gagctaatga agcatgtcta aaaatgctac aagagatagg
+      361 ctctgttaaa aaaattcctc aatttattgc gcgtgcaaaa gataaaaatg atccttttcg
+      421 tcttatgggc ttcggccaca gagtctacaa aaattatgat ccacgtgcaa agattatgca
+      481 gaaaacctgc catgaagttt taaaagagct caacattcaa gataacccac tttttgatat
+      541 agcgatggag cttgagcaca tcgctctgaa tgatgaatat ttcattaaca aaaagctcta
+      601 tcctaatgtc gacttctatt ctggtattac attaaaagct ttaggattcc ctacggaaat
+      661 gt
+//

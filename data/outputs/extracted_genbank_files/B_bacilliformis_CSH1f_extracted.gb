@@ -1,0 +1,23 @@
+LOCUS       sanger_seq               341 bp    ds-DNA  linear   UNK 04-AUG-2025
+DEFINITION  Quality-trimmed from .ab1 file.
+ACCESSION   B_bacilliformis_CSH1f
+VERSION     B_bacilliformis_CSH1f
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  Bartonella bacilliformis
+            .
+FEATURES             Location/Qualifiers
+     source          1..341
+                     /organism="Bartonella bacilliformis"
+                     /mol_type="genomic DNA"
+                     /note="Quality-trimmed sequence"
+     gene            1..341
+                     /gene="placeholder_gene"
+ORIGIN
+        1 ttattgcgcg tgcgaaagat aaaaatgatc cttttcgtct tatgggcttc ggccacagag
+       61 tctacaaaaa ttatgatcca cgtgcaaaga ttatgcaaaa aacctgccat gaagttttaa
+      121 aagagctcaa cattcaagat aacccacttt ttgatatagc gatggagctt gagcacatcg
+      181 ctctgaatga tgaatatttc attaacaaaa agctctatcc taatgtcgac ttctattctg
+      241 ggattacatt aaaagcttta ggattcccta cggaaatgtt tactgttctt tttgcatttt
+      301 cccccctgac ctggccccca aagggatgca acacctgctg c
+//

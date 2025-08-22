@@ -1,0 +1,31 @@
+LOCUS       sanger_seq               810 bp    ds-DNA  linear   UNK 04-AUG-2025
+DEFINITION  Quality-trimmed from .ab1 file.
+ACCESSION   B.bacilliformis_BhCS1137n
+VERSION     B.bacilliformis_BhCS1137n
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  Bartonella bacilliformis
+            .
+FEATURES             Location/Qualifiers
+     source          1..810
+                     /organism="Bartonella bacilliformis"
+                     /mol_type="genomic DNA"
+                     /note="Quality-trimmed sequence"
+     gene            1..810
+                     /gene="placeholder_gene"
+ORIGIN
+        1 atgtaatacc agaatagaag tcgacattag gatagagctt tttgttaatg aaatattcat
+       61 cattcagagc gatgtgctca agctccatcg ctatatcaaa aagtgggtta tcttgaatgt
+      121 tgagctcttt taaaacttca tggcaggttt tctgcataat ctttgcacgt ggatcataat
+      181 ttttgtagac tctgtggccg aagcccataa gacgaaaagg atcattttta tcttttgcac
+      241 gcgcaataaa ttgaggaatt tttttaacag agcctatctc ttgtagcatt tttagacatg
+      301 cttcattagc tccaccatga gctggccccc aaaggcatgc aacacctgct gcaatacatg
+      361 caaacggatt agctcctgat gaacctgcaa ggcgtactgt tgatgtagat gcattttgtt
+      421 catgatctgc atgaagagta aaaattcgat ccatagctcg agcaataaca gggctaattt
+      481 tgtattcttc acaaggaaca gagaagcaca tatgaaggaa atttgtagcg taattaaggt
+      541 cattacgtgg ataaacaaaa ggttgcccaa tactgtattt atatgccata gcagcaagag
+      601 ttggaacctt tgagataaga cgaatggagg caatcattct ctgttgagga tctgtaatat
+      661 taatagagtc atgatagaat gcagacatag caccaagaca agcgaccata acagccatag
+      721 gatgagaatc gcgacgaaat ccgtgtagag cgtgcaattg ttcatgcacc attgtatgct
+      781 gcataataca gcgatcaaaa tctatttttt
+//
