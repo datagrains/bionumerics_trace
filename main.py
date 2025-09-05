@@ -11,6 +11,8 @@ from QUEEN.queen import *
 from QUEEN import cutsite
 import numpy as np
 
+# If running in Python 3.12, uninstall urllib and reinstall
+
 # Input filenames (without extensions)
 ab1_files = [
     "B_bacilliformis_CSH1f",
